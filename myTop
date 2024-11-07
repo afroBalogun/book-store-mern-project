@@ -1,0 +1,65 @@
+// import React from "react";
+// import { useRef, useState, useEffect } from 'react';
+// import bookData from "../../../data/blog.json"
+// import Card from "./Card";
+
+// import { Swiper, SwiperSlide } from 'swiper/react';
+
+// import 'swiper/css';
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+// import { Pagination, Navigation } from 'swiper/modules';
+
+
+// export default function TopSellers(){
+//     const [swiperRef, setSwiperRef] = useState(null);
+//     const [isCentered, setIsCentered] = useState(false);
+
+
+
+//     const books = bookData.map( book => {
+//         return(
+//             <SwiperSlide>
+//                 <Card 
+//                 book = {book}
+//                 className = ""
+//             />
+//             </SwiperSlide>
+           
+//         )
+        
+//     })
+//     return(
+//         <div className="font-primary">
+//             <h2 className="text-3xl font-semibold mb-6">
+//                 Top Sellers
+//             </h2>
+
+//             <select name="" className="border bg-[#EAEAEA] border-gray-300 rounded-md px-4 py-2 focus:outline-none mb-6">
+//                 <option value="Choose a Genre">Choose a Genre</option>
+//                 <option value="Business">Business</option>
+//                 <option value="Fiction">Fiction</option>
+//                 <option value="Horror">Horror</option>
+//                 <option value="Adventure">Adventure</option>
+
+
+//             </select>
+
+//             <Swiper
+//                 onSwiper={setSwiperRef}
+//                 slidesPerView={2}
+//                 centeredSlides={isCentered}
+//                 spaceBetween={0}
+
+//                 navigation={true}
+//                 modules={[Pagination, Navigation]}
+//                 className="mySwiper w-full flex-wrap"
+//                 >
+//                     {books}
+//             </Swiper>
+
+
+            
+//         </div>
+//     )
+// }
