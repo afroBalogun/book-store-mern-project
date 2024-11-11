@@ -3,14 +3,14 @@ import InputField from '../addBook/InputField'
 import SelectField from '../addBook/SelectField'
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { useFetchBookByIdQuery, useUpdateBookMutation}  from '../features/books/booksSlice';
+import { useFetchBookByIdQuery, useUpdateBookMutation } from '../../../redux/features/books/booksAPI';
 
 import Loading from '../../../components/Loading';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import getBaseUrl from '../../../utils/baseURL';
 
-export default function UpdateBooks(){
+export default function UpdateBook(){
     const { id } = useParams();
     const { data: bookData, isLoading, isError, refetch } = useFetchBookByIdQuery(id);
     // console.log(bookData)
@@ -27,7 +27,7 @@ export default function UpdateBooks(){
         setValue('coverImage', bookData.coverImage)
       }
     }, [bookData, setValue])
-  
+
     const onSubmit = async (data) => {
       const updateBookData = {
         title: data.title,
@@ -65,7 +65,7 @@ export default function UpdateBooks(){
     return (
       <div className="max-w-lg mx-auto md:p-6 p-3 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Update Book</h2>
-    
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label="Title"
@@ -73,7 +73,7 @@ export default function UpdateBooks(){
             placeholder="Enter book title"
             register={register}
           />
-    
+
           <InputField
             label="Description"
             name="description"
@@ -81,7 +81,7 @@ export default function UpdateBooks(){
             type="textarea"
             register={register}
           />
-    
+
           <SelectField
             label="Category"
             name="category"
@@ -105,7 +105,7 @@ export default function UpdateBooks(){
               <span className="ml-2 text-sm font-semibold text-gray-700">Trending</span>
             </label>
           </div>
-          
+
           <InputField
             label="Old Price"
             name="oldPrice"
@@ -113,7 +113,7 @@ export default function UpdateBooks(){
             placeholder="Old Price"
             register={register}
           />
-    
+
           <InputField
             label="New Price"
             name="newPrice"
@@ -121,7 +121,7 @@ export default function UpdateBooks(){
             placeholder="New Price"
             register={register}
           />
-    
+
           <InputField
             label="Cover Image URL"
             name="coverImage"
@@ -129,7 +129,7 @@ export default function UpdateBooks(){
             placeholder="Cover Image URL"
             register={register}
           />
-    
+
           <button type="submit" className="w-full py-2 bg-blue-500 text-white font-bold rounded-md">
             Update Book
           </button>
