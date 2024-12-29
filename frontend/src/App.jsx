@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./index.css";
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import bookData from "../data/blog.json"
 import Footer from "./components/Footer";
 import AuthProvider from "./context/AuthContext";
