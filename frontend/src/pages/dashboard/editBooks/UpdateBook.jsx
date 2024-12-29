@@ -16,6 +16,8 @@ export default function UpdateBook(){
     // console.log(bookData)
     const [updateBook] = useUpdateBookMutation();
     const { register, handleSubmit, setValue, reset } = useForm();
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+
     useEffect(() => {
       if (bookData) {
         setValue('title', bookData.title);
@@ -38,27 +40,21 @@ export default function UpdateBook(){
         newPrice: Number(data.newPrice),
         coverImage: data.coverImage || bookData.coverImage,
       };
-      try {
+      setIsSubmitting(true);
+    try {
         await axios.put(`${getBaseUrl()}/api/books/edit/${id}`, updateBookData, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-        Swal.fire({
-          title: "Book Updated",
-          text: "Your book is updated successfully!",
-          icon: "success",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, It's Okay!"
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
         });
-        await refetch()
-      } catch (error) {
-        console.log("Failed to update book.");
+        Swal.fire({ title: "Book Updated", icon: "success" });
+        navigate('/dashboard/books');
+    } catch (error) {
         alert("Failed to update book.");
-      }
+    } finally {
+        setIsSubmitting(false);
+    }
     }
     if (isLoading) return <Loading />
     if (isError) return <div>Error fetching book data</div>
@@ -109,7 +105,7 @@ export default function UpdateBook(){
           <InputField
             label="Old Price"
             name="oldPrice"
-            type="number"
+            type="float"
             placeholder="Old Price"
             register={register}
           />
@@ -117,7 +113,7 @@ export default function UpdateBook(){
           <InputField
             label="New Price"
             name="newPrice"
-            type="number"
+            type="float"
             placeholder="New Price"
             register={register}
           />
@@ -130,8 +126,11 @@ export default function UpdateBook(){
             register={register}
           />
 
-          <button type="submit" className="w-full py-2 bg-blue-500 text-white font-bold rounded-md">
-            Update Book
+          <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-2 bg-blue-500 text-white font-bold rounded-md">
+              {isSubmitting ? "Updating..." : "Update Book"}
           </button>
         </form>
       </div>
