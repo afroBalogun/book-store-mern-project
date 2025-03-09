@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 import '../../index.css';
 import { Navigation } from 'swiper/modules';
-import { useFetchAllBooksQuery } from "../../redux/features/books/booksAPI";
+import { useFetchAllBooksQuery } from "../../redux/features/books/booksApi";
 
 
 export default function Recommended(props){    

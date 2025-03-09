@@ -3,7 +3,7 @@ import InputField from '../addBook/InputField'
 import SelectField from '../addBook/SelectField'
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { useFetchBookByIdQuery, useUpdateBookMutation } from '../../../redux/features/books/booksAPI';
+import { useFetchBookByIdQuery, useUpdateBookMutation } from '../../../redux/features/books/booksApi';
 
 import Loading from '../../../components/Loading';
 import Swal from 'sweetalert2';

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDeleteBookMutation, useFetchAllBooksQuery } from "../../../redux/features/books/booksAPI";
+import { useDeleteBookMutation, useFetchAllBooksQuery } from "../../../redux/features/books/booksApi";
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function ManageBooks(){
