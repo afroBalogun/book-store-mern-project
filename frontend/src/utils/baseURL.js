@@ -5,4 +5,4 @@ const getBaseUrl = () => {
 };
 
 
-export default getBaseUrl
+export default getBaseUrl;
