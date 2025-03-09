@@ -3,7 +3,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/features/cart/cartSlice";
 import { useParams } from "react-router-dom";
-import { useFetchBookByIdQuery } from "../redux/features/books/booksAPI";
+import { useFetchBookByIdQuery } from "../redux/features/books/booksApi";
 import getImgUrl from "../utils/getImgUrl"; // Assuming getImgUrl is located here
 
 export default function SingleBook() {
