@@ -1,9 +1,9 @@
 const { default: mongoose } = require('mongoose')
-const momgoose = require('mongoose')
+const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 
 
-const userSchema = new momgoose.Schema({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,

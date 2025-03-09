@@ -13,6 +13,8 @@
     "vercel": {
       "functions": "functions"
     }
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
-
 }

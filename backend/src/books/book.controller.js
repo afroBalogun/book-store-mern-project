@@ -22,7 +22,7 @@ const getAllBooks = async (req, res) => {
 
     }   catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Error creating the book", error });
+        res.status(500).json({ message: "Error getting the books", error });
     }
 }
 
