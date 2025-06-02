@@ -181,7 +181,7 @@ export default function Checkout(){
                                                             id="billing_same" 
                                                             className="form-checkbox" 
                                                             onChange={() => setIsChecked(!isChecked)} 
-                                                        />                                                            <label for="billing_same" className="ml-2 ">I am aggree to the <Link className='underline underline-offset-2 text-blue-600'>Terms & Conditions</Link> and <Link className='underline underline-offset-2 text-blue-600'>Shoping Policy.</Link></label>
+                                                        />                                                            <label for="billing_same" className="ml-2 ">I agree to the <Link className='underline underline-offset-2 text-blue-600'>Terms & Conditions</Link> and <Link className='underline underline-offset-2 text-blue-600'>Shopping Policy.</Link></label>
                                                         </div>
                                                     </div>
 
